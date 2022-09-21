@@ -1,19 +1,22 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""1-square.py
-This module contains an class
-A class that defines a square by:
--Private instance attribute: size
--Instantiation with size (no type/value verification)
+"""
+Module 1-square
+Defines class Square with private attribute size
 """
 
+
 class Square:
-    """Represent a square."""
+    """
+    class Square definition
 
+    Args:
+        size : size of a side in square
+    """
     def __init__(self, size):
-        """Initialize a new Square.
+        """
+        Initializes square
 
-        Args:
-            size (int): The size of the new square.
+        Attributes:
+            size: size of a side of square
         """
         self.__size = size
