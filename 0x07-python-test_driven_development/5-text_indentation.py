@@ -1,20 +1,20 @@
 #!/usr/bin/python3
-
 """
-Module 5-text_indentation
-Contains method that prints text with 2 new lines after each ".", "?", and ":"
-Takes in a string
+Module text_indentation
+Adds two new lines after a set of characters.
 """
 
-    def text_indentation(text):
-     """
-        Prints text with 2 new lines after each ".", "?", and ":"
-     """
-        if not isinstance(text, str):
-            raise TypeError("text must be a string")
 
-        for char in ".?:":
-            text = text.replace(char, char + "\n\n")
-            list_lines = [lines.strip(' ') for lines in text.split('\n')]
-            revised = "\n".join(list_lines)
-            print(revised, end="")
+def text_indentation(text):
+    """Prints text with added two newlines
+    after each of these characters {'.', '?', ':'}.
+    """
+
+    if type(text) is not str:
+        raise TypeError("text must be a string")
+
+    for delim in ".:?":
+        text = (delim + "\n\n").join(
+            [line.strip(" ") for line in text.split(delim)])
+
+    print("{}".format(text), end="")
