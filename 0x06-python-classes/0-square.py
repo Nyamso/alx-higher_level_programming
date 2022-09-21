@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
+"""
+Module 0-square
+Defines class Square
+"""
+
 
 class Square:
-    """Represent a square."""
+    """Empty class"""
     pass
