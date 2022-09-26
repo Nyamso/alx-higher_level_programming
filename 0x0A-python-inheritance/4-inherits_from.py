@@ -1,12 +1,18 @@
 #!/usr/bin/python3
-def inherits_from(obj, a_class):
-    """
-    Notes:
-    use type() to get specific class
-    use isinstance() to get class and any parent classes too
-    use issubclass() to get what object is a subclass of
+"""Module 4-inherits_from.
+Finds if the object is an instance of a class that inherited
+(directly or indirectly) from the specified class."""
 
-    Return:
-    True if obj is instance of class that it inherits from or is subcls of
+
+def inherits_from(obj, a_class):
+    """Determines if obj is an instance of a class that
+    inherited from a_class.
+
+    Args:
+        - obj: object to look at
+        - a_class: class to evaluate
+
+    Returns: True or False
     """
-     return (type(obj) is not a_class and issubclass(type(obj), a_class))
+
+    return isinstance(obj, a_class) and type(obj) != a_class
