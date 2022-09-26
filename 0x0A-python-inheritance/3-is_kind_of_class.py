@@ -1,12 +1,19 @@
 #!/usr/bin/python3
-def is_same_class(obj, a_class):
+"""Module 3-is_kind_of_class.
+Finds if the object is an instance of, or if the object is an
+instance of a class that inherited from, the specified class.
+"""
+
+
+def is_kind_of_class(obj, a_class):
+    """Finds if obj is an instance of a_class or a class
+    inherited from a_class.
+
+    Args:
+        - obj: object to look at
+        - a_class: class to evaluate
+
+    Returns: True or False
     """
 
-    Notes:
-    use type() to get specific class
-    use isinstance() to get class and any parent classes too
-    use issubclass() to get what object is a subclass of
-    Return:
-    True if obj is exactly an instance of specified class
-    """
-    return type(obj) == a_class
+    return isinstance(obj, a_class)
