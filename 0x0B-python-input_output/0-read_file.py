@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-"""Module 0-read_file.
-Reads from a file and prints.
+"""
+Module 0-read_file
+
+Contains function that reads and prints contents from file
 """
 
 
 def read_file(filename=""):
-    """Reads from filename and prints
-    its contents to stdout.
-
-    Args:
-        - filename: name of the file
-    """
-
-    with open(filename) as f:
-        read_text = f.read()
-        print(read_text, end="")
+    """Read and print text from file"""
+    with open(filename, mode="r", encoding="utf-8") as f:
+        print(f.read(), end="")
