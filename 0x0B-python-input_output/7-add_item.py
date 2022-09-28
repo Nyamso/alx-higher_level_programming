@@ -1,38 +1,18 @@
 #!/usr/bin/python3
-"""Module 9-add_item.
+"""Module 7-add_item.
 Adds all arguments to a Python list,
 and then save them to a file.
 """
 
-import sys
+from sys import argv
+save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
+filename = "add_item.json"
 
-def print_size_and_codes(size, stat_codes):
-    print("File size: {:d}".format(size))
-    for k, v in sorted(stat_codes.items()):
-        if v:
-            print("{:s}: {:d}".format(k, v))
+try:
+    existing_content = load_from_json_file(filename)
+except FileNotFoundError:
+    existing_content = []
 
-
-def parse_stdin_and_compute():
-    size = 0
-    lines = 0
-    stat_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                  "403": 0, "404": 0, "405": 0, "500": 0}
-    try:
-        for line in sys.stdin:
-            fields = list(map(str, line.strip().split(" ")))
-            size += int(fields[-1])
-            if fields[-2] in stat_codes:
-                stat_codes[fields[-2]] += 1
-            lines += 1
-            if lines % 10 == 0:
-                print_size_and_codes(size, stat_codes)
-    except KeyboardInterrupt:
-        print_size_and_codes(size, stat_codes)
-        raise
-
-    print_size_and_codes(size, stat_codes)
-
-
-parse_stdin_and_compute()
+save_to_json_file(existing_content + argv[1:], filename)
