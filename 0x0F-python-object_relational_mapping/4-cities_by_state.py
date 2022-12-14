@@ -1,25 +1,7 @@
 #!/usr/bin/python3
 
-<<<<<<< HEAD
 import MySQLdb
 from sys import argv
-=======
-import sys
-import MySQLdb
-
-if __name__ == "__main__":
-  db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` \
-                 FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                   ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
-    [print(city) for city in c.fetchall()]
-  
-
-
->>>>>>> 9bb0876841921124b62bfac69e26a1c80e032280
 
 if __name__ == "__main__":
 
