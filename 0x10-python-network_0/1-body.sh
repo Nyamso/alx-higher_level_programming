@@ -1,3 +1,3 @@
 #!/bin/bash
-# Script to send a DELETE request to a given URL and display the response body.
-curl -sX DELETE "$1"
+# Script to get the response body for a given URL for 200 status code responses.
+curl -sL "$1"
