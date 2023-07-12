@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-
-import sys
+""" Github code challenge"""
 import requests
-
+from sys import argv
 
 if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-            sys.argv[2], sys.argv[1])
-
+    url = "https://api.github.com/repos/{}/{}/commits"\
+          .format(argv[2], argv[1])
     r = requests.get(url)
-    commits = r.json()
-    try:
-        for i in range(10):
-            print(f"{commits[i]['sha']}: {commits[i]['commit']['author']['name']}")
-    except IndexError:
-        pass
+    n = 0
+    for i in r.json():
+        if n < 10:
+            print("{}: {}".format(i.get("sha"),
+                  i.get("commit").get("author").get("name")))
+        n += 1
